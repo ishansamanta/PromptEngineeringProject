@@ -4,4 +4,4 @@ This is a simple website hosted using firebase, and the source code of the HTML 
 ## AIM OF THIS WEBSITE:
 THIS WEBSITE LOCALLY COLLECTS WEATHER INFORS FROM A MENTIONED SITE AND DISPLAYS THEM IN OUR WEBSITE. It will ask the user to enter the name of the place and rest of the things are automatically handled.
 
-####DATE:31st July,2025
+#### DATE:31st July,2025
