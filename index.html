@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MO.O.O.N CLI - Weather Monitor</title>
+  <style>
+    body {
+      background-color: #0a0a23;
+      font-family: 'Courier New', monospace;
+      color: #00ffe7;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #121212;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 3px solid #00ffcc;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #00ffff;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
+
+    header .logo {
+      font-size: 3rem;
+      color: #ffff00;
+    }
+
+    .container {
+      padding: 30px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .info-box {
+      background-color: #14143b;
+      border: 2px solid #00ffcc;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 15px #00ffee;
+    }
+
+    .info-box h2 {
+      margin-top: 0;
+      color: #ff44ff;
+      font-size: 1.8rem;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: 300px; /* 🟢 BIGGER PANEL */
+      background-color: #000;
+      color: #0f0;
+    }
+
+    footer {
+      background-color: #121212;
+      text-align: center;
+      padding: 15px;
+      border-top: 2px solid #00ffcc;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: #00ffd5;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    form {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 60%;
+      border-radius: 5px;
+      border: none;
+      font-family: monospace;
+      font-size: 1rem;
+      background-color: #1c1c2e;
+      color: #00ffee;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+      background-color: #00ffee;
+      color: #000;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    button:hover {
+      background-color: #00bbaa;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">🌕</div>
+    <h1>M.O.O.N CLI Weather Panel</h1>
+  </header>
+
+  <div class="container">
+    <section id="about" class="info-box">
+      <h2>🌌 About</h2>
+      <p>Welcome to the M.O.O.N CLI-style weather portal. Designed for simplicity and clarity, this vibrant interface displays real-time weather reports in a terminal-inspired layout. No accounts. No tracking. Just pure data. This site is purely based on the concept of prompt engineering. Design concepts and prompts were given by Ishan Samanta.</p>
+    </section>
+
+    <section id="weather" class="info-box">
+      <h2>🌦 Live Weather Monitor</h2>
+      <form onsubmit="updateWeather(); return false;">
+        <input type="text" id="locationInput" placeholder="Enter your city or location (e.g. Delhi)" required />
+        <button type="submit">Get Weather</button>
+      </form>
+      <iframe 
+        id="weatherFrame"
+        src="https://wttr.in/Kolkata?format=v2"
+        title="Live Weather Report">
+      </iframe>
+    </section>
+
+    <section id="info" class="info-box">
+      <h2>🛠 Tech Used</h2>
+      <ul>
+        <li>HTML5 + CSS3</li>
+        <li>wttr.in terminal-style weather API</li>
+        <li>ChatGPT-OpenAI</li>
+      </ul>
+    </section>
+  </div>
+
+  <footer>
+    © 2025 M.O.O.N Weather CLI | Prompt Engineered and Managed by Ishan (CEO-M.O.O.N-core) | <a href="https://wttr.in" target="_blank">Powered by wttr.in</a>
+  </footer>
+
+  <script>
+    function updateWeather() {
+      const location = document.getElementById("locationInput").value.trim();
+      const frame = document.getElementById("weatherFrame");
+      if (location !== "") {
+        const url = `https://wttr.in/${encodeURIComponent(location)}?format=v2`;
+        frame.src = url;
+      }
+    }
+  </script>
+
+</body>
+</html>
